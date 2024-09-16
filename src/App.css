@@ -1,5 +1,6 @@
 body {
   background: black;
+  color: white;
 }
 .articles_container {
   display: block;
@@ -8,10 +9,16 @@ body {
   width: 100%;
 }
 .articles_container div {
-  background-color: rgb(175, 171, 171);
+  background-color: rgb(59, 58, 58);
   border-radius: 2%;
   margin: 2%;
   outline-style: ridge;
   outline-width: 3px;
-  outline-color: rgb(112, 108, 108);
+  outline-color: rgb(199, 193, 193);
+}
+
+.article_page_pic {
+  width: 100%;
+  outline-color: aliceblue;
+  outline-width: 10px;
 }

@@ -1,15 +1,24 @@
 import { useState } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import Articles from "./components/articles";
+import { Route, Routes, Link } from "react-router-dom";
+import Articles from "./components/Articles";
+import ArticlePage from "./components/Articlepage";
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/articles" element={<Articles />} />
-      </Routes>
-    </div>
+    <>
+      <Link to="/articles">
+        <button type="submit">
+          Articles button will be replaced with nav bar and new homescreen
+        </button>
+      </Link>
+      <div>
+        <Routes>
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/articles/:article_id" element={<ArticlePage />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
