@@ -21,3 +21,9 @@ export const getComments = (article_id) => {
     return data;
   });
 };
+
+export const patchArticleVotes = (article_id, votes) => {
+  return ncNews.patch(`/api/articles/${article_id}`, votes).then(({ data }) => {
+    return data;
+  });
+};
