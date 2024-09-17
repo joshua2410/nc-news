@@ -36,3 +36,14 @@ body {
   padding: 3px;
   transform: rotate(45deg);
 }
+.article_info {
+  font-size: 20px;
+}
+
+.upVoted {
+  color: greenyellow;
+}
+
+.downVoted {
+  color: red;
+}

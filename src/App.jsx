@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import { Route, Routes, Link } from "react-router-dom";
 import Articles from "./components/Articles";
