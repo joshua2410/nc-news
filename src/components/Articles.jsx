@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getAllArticles, timeConverter } from "../axiosFunctions";
+import { getAllArticles } from "../axiosFunctions";
 import { useNavigate } from "react-router-dom";
+import { timeConverter } from "../utils";
 
 const Articles = () => {
   const navigate = useNavigate();

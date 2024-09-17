@@ -16,8 +16,8 @@ export const getArticle = (article_id) => {
   });
 };
 
-export const timeConverter = (unformatted) => {
-  const regex = /\d+-\d+-\d+/;
-  const time = unformatted.match(regex);
-  return time[0];
+export const getComments = (article_id) => {
+  return ncNews.get(`/api/articles/${article_id}/comments`).then(({ data }) => {
+    return data;
+  });
 };

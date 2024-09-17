@@ -22,3 +22,17 @@ body {
   outline-color: aliceblue;
   outline-width: 10px;
 }
+.arrow_right {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+.arrow_down {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
