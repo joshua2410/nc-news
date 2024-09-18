@@ -29,7 +29,7 @@ const ArticlePage = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <>
+        <div className="article_page">
           <h1>{articlePage.title}</h1>
           <em className="article_info">
             by {articlePage.author} {timeConverter(articlePage.created_at)} ♡{" "}
@@ -49,7 +49,7 @@ const ArticlePage = () => {
             articlePage={articlePage}
             article_id={article_id}
           ></Comments>
-        </>
+        </div>
       )}
     </>
   );
