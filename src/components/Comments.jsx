@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getComments } from "../axiosFunctions";
 import { timeConverter } from "../utils";
+import NewComment from "./NewComment";
 
 const Comments = ({ article_id, articlePage }) => {
   const [commentsClicked, setCommentsClicked] = useState(false);
@@ -14,7 +15,7 @@ const Comments = ({ article_id, articlePage }) => {
         console.log(err);
       });
   }, []);
-
+  console.log(comments);
   return (
     <>
       {commentsClicked ? (
@@ -39,6 +40,11 @@ const Comments = ({ article_id, articlePage }) => {
               );
             })}
           </div>
+          <NewComment
+            article_id={article_id}
+            comments={comments}
+            setComments={setComments}
+          ></NewComment>
         </>
       ) : (
         <p

@@ -47,3 +47,28 @@ body {
 .downVoted {
   color: red;
 }
+
+.new_comment_footer {
+  position: sticky;
+  padding: 1.5%;
+  width: 100%;
+  bottom: 0;
+  background-color: rgb(207, 203, 203);
+}
+.article_page {
+  width: 100%;
+}
+.new_comment_input {
+  width: 80%;
+  border-radius: 15px;
+}
+
+.comment_form {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.comment_form button {
+  border-radius: 15px;
+}
