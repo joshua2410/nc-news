@@ -37,3 +37,13 @@ export const postComment = (article_id, data) => {
       return data;
     });
 };
+
+export const getUsers = () => {
+  return ncNews.get(`/api/users`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const deleteComment = (comment_id) => {
+  return ncNews.delete(`/api/comments/${comment_id}`);
+};
