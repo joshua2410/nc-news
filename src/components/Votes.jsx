@@ -6,19 +6,16 @@ const Votes = ({ article_id, setArticleVotes, articleVotes }) => {
   const [downVoted, setDownVoted] = useState(false);
 
   const articleUpVoteHandler = (article_id, votes) => {
-    patchArticleVotes(article_id, { inc_votes: votes }).then(({ article }) => {
-      setArticleVotes(article.votes);
-      console.log(article.votes);
-      setUpVoted(true);
-      setDownVoted(false);
-    });
+    setArticleVotes(articleVotes + votes);
+    setUpVoted(true);
+    setDownVoted(false);
+    patchArticleVotes(article_id, { inc_votes: votes });
   };
   const articleDownVoteHandler = (article_id, votes) => {
-    patchArticleVotes(article_id, { inc_votes: votes }).then(({ article }) => {
-      setArticleVotes(article.votes);
-      setUpVoted(false);
-      setDownVoted(true);
-    });
+    setArticleVotes(articleVotes + votes);
+    setUpVoted(false);
+    setDownVoted(true);
+    patchArticleVotes(article_id, { inc_votes: votes });
   };
 
   return (
@@ -28,13 +25,10 @@ const Votes = ({ article_id, setArticleVotes, articleVotes }) => {
           <span
             className="upVoted"
             onClick={() => {
-              patchArticleVotes(article_id, { inc_votes: -1 }).then(
-                ({ article }) => {
-                  setArticleVotes(article.votes);
-                  setUpVoted(false);
-                  setDownVoted(false);
-                }
-              );
+              setArticleVotes(articleVotes - 1);
+              setUpVoted(false);
+              setDownVoted(false);
+              patchArticleVotes(article_id, { inc_votes: -1 });
             }}
           >
             &#x25B2;
@@ -72,8 +66,6 @@ const Votes = ({ article_id, setArticleVotes, articleVotes }) => {
           <span
             onClick={() => {
               articleUpVoteHandler(article_id, 2);
-              setUpVoted(false);
-              setDownVoted(false);
             }}
           >
             &#x25B2;
@@ -81,13 +73,10 @@ const Votes = ({ article_id, setArticleVotes, articleVotes }) => {
           <span
             className="downVoted"
             onClick={() => {
-              patchArticleVotes(article_id, { inc_votes: 1 }).then(
-                ({ article }) => {
-                  setArticleVotes(article.votes);
-                  setUpVoted(false);
-                  setDownVoted(false);
-                }
-              );
+              setArticleVotes(articleVotes + 1);
+              setUpVoted(false);
+              setDownVoted(false);
+              patchArticleVotes(article_id, { inc_votes: 1 });
             }}
           >
             &#x25Bc;

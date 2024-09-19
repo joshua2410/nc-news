@@ -5,13 +5,13 @@ import { timeConverter } from "../utils";
 import Votes from "./Votes";
 import Comments from "./Comments";
 
-const ArticlePage = () => {
+const ArticlePage = ({ loggedInUser }) => {
   const { article_id } = useParams();
   const [articlePage, setArticlePage] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const [articleVotes, setArticleVotes] = useState(0);
-
+  console.log(loggedInUser);
   useEffect(() => {
     getArticle(article_id)
       .then(({ article }) => {
@@ -48,6 +48,7 @@ const ArticlePage = () => {
           <Comments
             articlePage={articlePage}
             article_id={article_id}
+            loggedInUser={loggedInUser}
           ></Comments>
         </div>
       )}
@@ -55,15 +56,3 @@ const ArticlePage = () => {
   );
 };
 export default ArticlePage;
-
-{
-  /* <span
-              onClick={() => {
-                articleUpVoteHandler(article_id, 1);
-                console.log(articleVotes);
-              }}
-            >
-              &#x25B2;
-            </span>
-            <span className="vote_down">&#x25BC;</span> */
-}

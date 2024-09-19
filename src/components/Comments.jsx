@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { getComments } from "../axiosFunctions";
 import { timeConverter } from "../utils";
 import NewComment from "./NewComment";
+import DeleteComment from "./DeleteComment";
 
-const Comments = ({ article_id, articlePage }) => {
+const Comments = ({ article_id, articlePage, loggedInUser }) => {
   const [commentsClicked, setCommentsClicked] = useState(false);
   const [comments, setComments] = useState([]);
   useEffect(() => {
@@ -15,7 +16,6 @@ const Comments = ({ article_id, articlePage }) => {
         console.log(err);
       });
   }, []);
-  console.log(comments);
   return (
     <>
       {commentsClicked ? (
@@ -33,6 +33,13 @@ const Comments = ({ article_id, articlePage }) => {
                 <div key={comment.comment_id}>
                   <strong>{comment.author}</strong>
                   <p>{comment.body}</p>
+                  <DeleteComment
+                    comment_id={comment.comment_id}
+                    loggedInUser={loggedInUser}
+                    username={comment.author}
+                    comments={comments}
+                    setComments={setComments}
+                  ></DeleteComment>
                   <small>
                     {timeConverter(comment.created_at)} ♡ {comment.votes}
                   </small>
@@ -44,6 +51,7 @@ const Comments = ({ article_id, articlePage }) => {
             article_id={article_id}
             comments={comments}
             setComments={setComments}
+            loggedInUser={loggedInUser}
           ></NewComment>
         </>
       ) : (
